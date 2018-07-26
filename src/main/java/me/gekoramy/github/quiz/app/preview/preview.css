@@ -2,8 +2,16 @@
     -fx-text-fill: #424242;
 }
 
+.hyperlink {
+    -fx-text-fill: #424242;
+}
+
+.label {
+    -fx-text-fill: #424242;
+}
+
 .hyperlink:visited {
-    -fx-text-fill: black;
+    -fx-text-fill: #424242;
     -fx-underline: false;
 }
 

@@ -28,7 +28,7 @@
             <HBox alignment="BOTTOM_RIGHT" spacing="10" GridPane.columnIndex="1">
                 <Hyperlink fx:id="btnSizeDown">
                     <graphic>
-                        <SVGPath content="M9 4v3h5v12h3V7h5V4H9zm-6 8h3v7h3v-7h3V9H3v3z" rotate="-180.0">
+                        <SVGPath content="M9 4v3h5v12h3V7h5V4H9zm-6 8h3v7h3v-7h3V9H3v3z" rotate="-180.0" fill="#424242">
                             <rotationAxis>
                                 <Point3D y="1.0"/>
                             </rotationAxis>
@@ -37,17 +37,17 @@
                 </Hyperlink>
                 <Hyperlink fx:id="btnSizeUp">
                     <graphic>
-                        <SVGPath content="M9 4v3h5v12h3V7h5V4H9zm-6 8h3v7h3v-7h3V9H3v3z"/>
+                        <SVGPath content="M9 4v3h5v12h3V7h5V4H9zm-6 8h3v7h3v-7h3V9H3v3z" fill="#424242"/>
                     </graphic>
                 </Hyperlink>
                 <Hyperlink fx:id="btnPrevious">
                     <graphic>
-                        <SVGPath content="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                        <SVGPath content="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="#424242"/>
                     </graphic>
                 </Hyperlink>
                 <Hyperlink fx:id="btnNext">
                     <graphic>
-                        <SVGPath content="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                        <SVGPath content="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="#424242"/>
                     </graphic>
                 </Hyperlink>
             </HBox>

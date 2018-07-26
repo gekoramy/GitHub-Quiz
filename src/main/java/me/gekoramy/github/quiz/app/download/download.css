@@ -1,0 +1,43 @@
+.hyperlink {
+    -fx-text-fill: #424242;
+}
+
+.hyperlink:visited {
+    -fx-text-fill: black;
+    -fx-underline: false;
+}
+
+.hyperlink:hover {
+    -fx-underline: false;
+}
+
+.hyperlink:focused {
+    -fx-underline: false;
+    -fx-border-color: transparent;
+}
+
+.progress-bar {
+    -fx-indeterminate-bar-length: 200;
+    -fx-indeterminate-bar-escape: true;
+    -fx-indeterminate-bar-flip: true;
+    -fx-indeterminate-bar-animation-time: 1;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.progress-bar > .bar {
+    -fx-background-color: #FDE960;
+    -fx-background-radius: 0;
+    -fx-padding: 1px;
+    -fx-background-insets: 0;
+}
+
+.progress-bar > .track {
+    -fx-background-color: #F5AF50;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+}
+
+.stackPane {
+    -fx-background-color: #EE6A5F;
+}

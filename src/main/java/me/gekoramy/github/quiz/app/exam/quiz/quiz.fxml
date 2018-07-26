@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="me.gekoramy.github.quiz.app.exam.quiz.QuizPresenter"
+          prefHeight="400.0" prefWidth="600.0" style="-fx-padding: 10;" fx:id="root">
+
+    <rowConstraints>
+        <RowConstraints vgrow="SOMETIMES"/>
+        <RowConstraints vgrow="NEVER"/>
+        <RowConstraints vgrow="NEVER"/>
+    </rowConstraints>
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES"/>
+    </columnConstraints>
+
+    <TextArea fx:id="txtQuestion" editable="false" maxHeight="Infinity" minHeight="0" prefHeight="100"
+              wrapText="true" GridPane.rowIndex="0"/>
+    <HBox alignment="CENTER_RIGHT" spacing="5" GridPane.rowIndex="1" style="-fx-padding: 5">
+        <Button fx:id="btnEdit" text="edit"/>
+        <Button fx:id="btnPeek" text="?"/>
+        <Button fx:id="btnClipboard" text="copy"/>
+    </HBox>
+
+    <VBox fx:id="pnlAnswers" spacing="10" style="-fx-padding: 10 0 0 0" GridPane.rowIndex="2"/>
+
+</GridPane>

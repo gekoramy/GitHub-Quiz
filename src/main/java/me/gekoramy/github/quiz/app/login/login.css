@@ -1,0 +1,8 @@
+VBox {
+    -fx-padding: 20;
+    -fx-background-color: #F9F9F9;
+}
+
+Label {
+    -fx-font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+}

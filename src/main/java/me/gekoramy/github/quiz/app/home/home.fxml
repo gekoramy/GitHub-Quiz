@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="root" alignment="CENTER" prefHeight="320.0" prefWidth="200.0" stylesheets="@home.css" vgap="20.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.gekoramy.github.quiz.app.home.HomePresenter">
+
+    <rowConstraints>
+        <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+    </rowConstraints>
+
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+    </columnConstraints>
+
+    <ImageView fitHeight="130.0" preserveRatio="true">
+        <Image url="@github-backpack.png" />
+    </ImageView>
+    <Label text="Quizzer" GridPane.rowIndex="1">
+        <font>
+            <Font size="30.0" />
+        </font>
+    </Label>
+    <Hyperlink fx:id="btnAdd" text="Check out" GridPane.rowIndex="2" />
+    <Hyperlink fx:id="btnOpen" text="Open" GridPane.rowIndex="3" />
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+</GridPane>

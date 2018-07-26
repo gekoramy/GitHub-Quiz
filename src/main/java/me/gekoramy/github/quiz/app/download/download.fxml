@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<StackPane prefHeight="150.0" stylesheets="@download.css" xmlns="http://javafx.com/javafx/8.0.121"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.gekoramy.github.quiz.app.download.DownloadPresenter"
+           fx:id="root" style="-fx-background-color: #EE6A5F;">
+    <VBox>
+        <ProgressBar fx:id="progress" minHeight="150.0" maxWidth="999999.0"/>
+    </VBox>
+
+    <GridPane>
+        <rowConstraints>
+            <RowConstraints valignment="CENTER" vgrow="SOMETIMES"/>
+        </rowConstraints>
+
+        <columnConstraints>
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES"/>
+        </columnConstraints>
+
+        <Label fx:id="lblRepo" text="lblRepo" GridPane.columnIndex="0">
+            <font>
+                <Font size="35.0"/>
+            </font>
+        </Label>
+        <StackPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        </StackPane.margin>
+    </GridPane>
+
+</StackPane>

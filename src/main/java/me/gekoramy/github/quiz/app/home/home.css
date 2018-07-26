@@ -1,0 +1,18 @@
+.hyperlink {
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+    -fx-padding: 4 0 4 0;
+}
+
+.hyperlink:visited {
+    -fx-text-fill: black;
+    -fx-underline: false;
+}
+
+.hyperlink:hover {
+    -fx-underline: false;
+}
+
+.hyperlink:focused {
+    -fx-underline: false;
+}

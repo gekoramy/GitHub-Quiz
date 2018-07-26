@@ -1,0 +1,18 @@
+.GridPane {
+    -fx-background-color: white;
+    border-color: #d1d5da;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.hyperlink {
+    -fx-text-fill: #1E69CF;
+    -fx-font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    -fx-font-weight: bold;
+}

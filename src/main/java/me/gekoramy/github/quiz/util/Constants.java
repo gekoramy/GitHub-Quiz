@@ -5,7 +5,7 @@ package me.gekoramy.github.quiz.util;
  */
 public class Constants {
 
-    public static final String MIME = "questions";
+    public static final String MIME = ".questions";
     public static final String PREFIX = "questions.";
 
 }

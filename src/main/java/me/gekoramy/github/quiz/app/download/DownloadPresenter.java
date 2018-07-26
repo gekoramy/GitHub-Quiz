@@ -38,13 +38,14 @@ public class DownloadPresenter implements Initializable {
 
     public DownloadPresenter() {
         this.fileChooser = new FileChooser();
+        this.fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Questions file", Constants.MIME));
         this.fileChooser.setTitle("Store to quiz yourself offline");
-        this.fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Question file", "questions"));
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fileChooser.setInitialFileName(download.getRepo().getName().replaceFirst(Constants.PREFIX, ""));
+
         lblRepo.setText(download.getRepo().getName());
         progress.progressProperty().bind(download.progressProperty());
         download.setOnSucceeded(e -> onSucceeded());

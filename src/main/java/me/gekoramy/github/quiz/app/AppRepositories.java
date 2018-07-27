@@ -30,6 +30,7 @@ public class AppRepositories extends Application {
         Injector.setConfigurationSource(customProperties::get);
         RepositoriesView appView = new RepositoriesView();
         Scene scene = new Scene(appView.getView());
+        stage.setHeight(370.0);
         stage.setTitle("Repositories");
         stage.setScene(scene);
         stage.show();

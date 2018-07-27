@@ -20,6 +20,8 @@ public class AppLogin extends Application {
         LoginView appView = new LoginView();
         presenter = (LoginPresenter) appView.getPresenter();
         Scene scene = new Scene(appView.getView());
+        stage.setHeight(400.0);
+        stage.setWidth(300.0);
         stage.setTitle("GitHub");
         stage.setScene(scene);
         stage.setResizable(false);

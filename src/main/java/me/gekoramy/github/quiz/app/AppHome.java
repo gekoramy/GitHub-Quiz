@@ -10,7 +10,7 @@ import me.gekoramy.github.quiz.app.home.HomeView;
  */
 public class AppHome extends Application {
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         HomeView appView = new HomeView();
         Scene scene = new Scene(appView.getView());
         stage.setTitle("Home");

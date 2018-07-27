@@ -38,6 +38,7 @@ public class AppPreview extends Application {
         PreviewView appView = new PreviewView();
         Scene scene = new Scene(appView.getView());
         ((PreviewPresenter) appView.getPresenter()).setAccelerators(scene);
+        stage.setHeight(150.0);
         stage.setTitle("Preview");
         stage.setScene(scene);
         stage.setResizable(false);

@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import me.gekoramy.github.quiz.app.exam.ExamPresenter;
 import me.gekoramy.github.quiz.app.exam.ExamView;
 import me.gekoramy.github.quiz.pojo.Question;
-import me.gekoramy.github.quiz.service.OpenLink;
 import org.eclipse.egit.github.core.Repository;
 
 import java.util.HashMap;
@@ -36,6 +35,8 @@ public class AppExam extends Application {
         ExamView appView = new ExamView();
         Scene scene = new Scene(appView.getView());
         ((ExamPresenter) appView.getPresenter()).setAccelerators(scene);
+        stage.setHeight(400.0);
+        stage.setWidth(600.0);
         stage.setTitle("Exam");
         stage.setScene(scene);
         stage.show();

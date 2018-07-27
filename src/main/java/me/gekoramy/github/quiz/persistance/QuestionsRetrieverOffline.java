@@ -13,8 +13,9 @@ import java.util.List;
 /**
  * @author Luca Mosetti
  */
+@SuppressWarnings("unchecked")
 public class QuestionsRetrieverOffline {
-    private static QuestionsRetrieverOffline instance = new QuestionsRetrieverOffline();
+    private static final QuestionsRetrieverOffline instance = new QuestionsRetrieverOffline();
 
     public static QuestionsRetrieverOffline getInstance() {
         return instance;

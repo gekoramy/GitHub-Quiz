@@ -44,9 +44,7 @@ public class RepositoriesPresenter implements Initializable {
         repositories.setOnSucceeded(e -> onSucceeded());
         FilteredList<Hyperlink> filteredList = new FilteredList<>(links, data -> true);
         pnlRepositories.setItems(filteredList);
-        txtFilter.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredList.setPredicate(data -> newValue == null || newValue.isEmpty() || data.getText().contains(newValue.toLowerCase()));
-        });
+        txtFilter.textProperty().addListener((observable, oldValue, newValue) -> filteredList.setPredicate(data -> newValue == null || newValue.isEmpty() || data.getText().contains(newValue.toLowerCase())));
         progress.visibleProperty().bind(repositories.runningProperty());
     }
 

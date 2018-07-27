@@ -34,7 +34,7 @@ public class EditContent extends Service<Void> {
         assert client != null;
         return new Task<Void>() {
             @Override
-            protected Void call() throws Exception {
+            protected Void call() {
                 hostServices.showDocument(
                         repo.getHtmlUrl() + "/edit/" + repo.getMasterBranch() + "/" + content
                 );

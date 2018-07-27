@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class ExamPresenter implements Initializable {
     @FXML
-    private BorderPane pnlBg;
+    private BorderPane root;
     @FXML
     private Hyperlink btnSizeDown;
     @FXML
@@ -62,7 +62,7 @@ public class ExamPresenter implements Initializable {
             createQuiz(i);
         }
 
-        pnlBg.styleProperty().bind(Bindings.concat("-fx-font-size: ", fontSize.asString()));
+        root.styleProperty().bind(Bindings.concat("-fx-font-size: ", fontSize.asString()));
         btnSizeDown.setOnAction(e -> fontSize.setValue(fontSize.getValue() - 1));
         btnSizeUp.setOnAction(e -> fontSize.setValue(fontSize.getValue() + 1));
         btnNext.setOnAction(e -> pnlQuestions.getSelectionModel().selectNext());

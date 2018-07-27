@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import me.gekoramy.github.quiz.app.AppDownload;
 import me.gekoramy.github.quiz.exception.NotLoggedException;
@@ -19,7 +16,9 @@ import org.eclipse.egit.github.core.Repository;
 
 import javax.inject.Inject;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 /**
  * @author Luca Mosetti
@@ -49,11 +48,17 @@ public class RepositoriesPresenter implements Initializable {
     }
 
     private void onSucceeded() {
-        repositories.getValue().stream().filter(r -> r.getName().startsWith(Constants.PREFIX)).forEach(r -> {
-            Hyperlink link = new Hyperlink(r.getName());
-            link.setOnAction(e -> onChosen(r));
-            links.add(link);
-        });
+        List<Repository> questionsRepos = repositories.getValue().stream().filter(r -> r.getName().startsWith(Constants.PREFIX)).collect(Collectors.toList());
+
+        if (questionsRepos.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "None of your repository starts with 'questions.'").show();
+        } else {
+            questionsRepos.forEach(r -> {
+                Hyperlink link = new Hyperlink(r.getName());
+                link.setOnAction(e -> onChosen(r));
+                links.add(link);
+            });
+        }
     }
 
     private void onChosen(Repository chosen) {

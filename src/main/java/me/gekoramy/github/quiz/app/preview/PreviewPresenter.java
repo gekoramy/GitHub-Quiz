@@ -35,9 +35,10 @@ import java.util.ResourceBundle;
  * @author Luca Mosetti
  */
 public class PreviewPresenter implements Initializable {
-    public Label lblQuestions;
-    public Slider sldQuestions;
-
+    @FXML
+    private Label lblQuestions;
+    @FXML
+    private Slider sldQuestions;
     @FXML
     private StackPane root;
     @FXML

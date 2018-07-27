@@ -159,7 +159,7 @@ public class QuizPresenter implements Initializable {
     /**
      * make all the answers look the same
      */
-    public void hideCorrect() {
+    private void hideCorrect() {
         btnPeek.setText("?");
         options.get(question.getCorrect()).setBackground(Background.EMPTY);
     }
@@ -175,7 +175,7 @@ public class QuizPresenter implements Initializable {
     /**
      * copy to clipboard the question with the possible answers
      */
-    public void copyToClipboard() {
+    private void copyToClipboard() {
         Clipboard.getSystemClipboard().setContent(content);
     }
 }

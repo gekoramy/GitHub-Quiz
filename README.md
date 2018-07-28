@@ -59,7 +59,7 @@ correct: A
 
 ## Credits
 
-The idea of the app borns from the [mfranzil](https://github.com/mfranzil) project: [RispondiDomande](https://github.com/mfranzil/RispondiDomande)
+The idea of the app was born from the [mfranzil](https://github.com/mfranzil) project: [RispondiDomande](https://github.com/mfranzil/RispondiDomande)
 
 ## Authors
 

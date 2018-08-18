@@ -1,69 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="me.gekoramy.github.quiz.app.login.LoginPresenter" alignment="CENTER" prefHeight="400.0"
-      prefWidth="300.0" spacing="10" stylesheets="@login.css">
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0" spacing="10" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.gekoramy.github.quiz.app.login.LoginPresenter">
 
     <ImageView fitHeight="60.0" fitWidth="60.0" preserveRatio="true">
-        <Image url="@GitHub-Mark.png"/>
+        <Image url="@GitHub-Mark.png" />
     </ImageView>
 
     <Label text="Sign in to GitHub">
         <font>
-            <Font size="22.0"/>
+            <Font size="22.0" />
         </font>
         <VBox.margin>
-            <Insets top="15.0"/>
+            <Insets top="15.0" />
         </VBox.margin>
     </Label>
 
-    <StackPane fx:id="pnlIncorrect" visible="false"
-               style="-fx-background-color: #ffdce0; -fx-border-color: rgba(27,31,35,0.15); -fx-border-radius: 5; -fx-padding: 10;">
-        <Label text="Incorrect username or password."/>
+    <StackPane fx:id="pnlIncorrect" style="-fx-background-color: #ffdce0; -fx-border-color: rgba(27,31,35,0.15); -fx-border-radius: 5; -fx-padding: 10;" visible="false">
+        <Label text="Incorrect username or password." />
     </StackPane>
 
-    <GridPane minHeight="200.0"
-              style="-fx-padding: 20; -fx-background-color: white; -fx-border-color: #D9DEE2; -fx-border-radius: 5">
+    <GridPane minHeight="200.0" style="-fx-padding: 20; -fx-background-color: white; -fx-border-color: #D9DEE2; -fx-border-radius: 5">
         <columnConstraints>
-            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES"/>
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES"/>
-            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES"/>
-            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES"/>
-            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES"/>
-            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES"/>
-            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES"/>
+            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints valignment="BOTTOM" vgrow="SOMETIMES" />
         </rowConstraints>
 
         <Label text="Username or email address" GridPane.rowIndex="0">
             <font>
-                <Font name="Arial" size="14.0"/>
+                <Font name="Arial" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="txtUser" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtUser" GridPane.rowIndex="1" />
         <Label text="Password" GridPane.rowIndex="2">
             <font>
-                <Font name="Arial" size="14.0"/>
+                <Font name="Arial" size="14.0" />
             </font>
         </Label>
-        <PasswordField fx:id="txtPass" GridPane.rowIndex="3"/>
-        <Button fx:id="btnSubmit" defaultButton="true" prefHeight="27.0" prefWidth="238.0"
-                style="-fx-background-color: linear-gradient(#68C965 0%, #53A450 90%);" text="Sign in"
-                textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="5">
+        <PasswordField fx:id="txtPass" GridPane.rowIndex="3" />
+        <Button fx:id="btnSubmit" defaultButton="true" prefHeight="27.0" prefWidth="238.0" style="-fx-background-color: linear-gradient(#68C965 0%, #53A450 90%);" text="Sign in" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="5">
             <font>
-                <Font name="Arial Bold" size="14.0"/>
+                <Font name="Arial Bold" size="14.0" />
             </font>
         </Button>
         <VBox.margin>
-            <Insets/>
+            <Insets />
         </VBox.margin>
     </GridPane>
 

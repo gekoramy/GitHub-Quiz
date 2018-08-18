@@ -21,7 +21,6 @@ import java.util.ResourceBundle;
  * @author Luca Mosetti
  */
 public class DownloadPresenter implements Initializable {
-
     @FXML
     private StackPane root;
     @FXML

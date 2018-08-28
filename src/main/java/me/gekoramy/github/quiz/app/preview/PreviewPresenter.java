@@ -50,6 +50,8 @@ public class PreviewPresenter implements Initializable {
     @FXML
     private Hyperlink btnRefresh;
     @FXML
+    private Hyperlink btnShuffle;
+    @FXML
     private Hyperlink btnDownload;
     @FXML
     private Hyperlink btnStart;
@@ -111,6 +113,7 @@ public class PreviewPresenter implements Initializable {
         btnStore.setOnAction(e -> onStore());
         btnDownload.setOnAction(e -> onDownload());
         btnRefresh.setOnAction(e -> onRefresh());
+        btnShuffle.setOnAction(e -> onShuffle());
         btnStart.setOnAction(e -> onStart());
     }
 
@@ -182,5 +185,9 @@ public class PreviewPresenter implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void onShuffle() {
+        examStarter.shuffle();
     }
 }

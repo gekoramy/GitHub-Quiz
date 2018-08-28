@@ -5,30 +5,22 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<StackPane prefHeight="150.0" stylesheets="@download.css" xmlns="http://javafx.com/javafx/8.0.121"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.gekoramy.github.quiz.app.download.DownloadPresenter"
-           fx:id="root" style="-fx-background-color: #EE6A5F;">
+<StackPane fx:id="root" prefHeight="150.0" style="-fx-background-color: #EE6A5F;" stylesheets="@download.css"
+           xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="me.gekoramy.github.quiz.app.download.DownloadPresenter">
     <VBox>
-        <ProgressBar fx:id="progress" minHeight="150.0" maxWidth="999999.0"/>
+        <ProgressBar fx:id="progress" maxWidth="999999.0" minHeight="150.0"/>
     </VBox>
 
-    <GridPane>
-        <rowConstraints>
-            <RowConstraints valignment="CENTER" vgrow="SOMETIMES"/>
-        </rowConstraints>
-
-        <columnConstraints>
-            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES"/>
-        </columnConstraints>
-
+    <VBox alignment="CENTER_LEFT">
         <Label fx:id="lblRepo" text="lblRepo" GridPane.columnIndex="0">
             <font>
                 <Font size="35.0"/>
             </font>
+            <VBox.margin>
+                <Insets left="15.0" right="15.0"/>
+            </VBox.margin>
         </Label>
-        <StackPane.margin>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-        </StackPane.margin>
-    </GridPane>
+    </VBox>
 
 </StackPane>

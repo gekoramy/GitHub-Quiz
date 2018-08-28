@@ -33,9 +33,9 @@ public class AppDownload extends Application {
         Injector.setConfigurationSource(customProperties::get);
         DownloadView appView = new DownloadView();
         Scene scene = new Scene(appView.getView());
-        stage.setHeight(150.0);
+        stage.setMinHeight(150.0);
+        stage.setMaxHeight(150.0);
         stage.setTitle("Download");
-        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

@@ -92,6 +92,9 @@ public class PreviewPresenter implements Initializable {
 
         progress.progressProperty().bind(examStarter.getQuestionPool().progressProperty());
 
+        btnRefresh.managedProperty().bindBidirectional(btnRefresh.visibleProperty());
+        btnDownload.managedProperty().bindBidirectional(btnDownload.visibleProperty());
+
         updateAvailable.valueProperty().addListener((value, oldValue, newValue) -> {
             if (newValue != null && newValue) {
                 btnDownload.visibleProperty().set(true);

@@ -13,76 +13,64 @@
                      progress="1"/>
     </VBox>
 
-    <GridPane hgap="40.0">
-        <rowConstraints>
-            <RowConstraints valignment="CENTER" vgrow="SOMETIMES"/>
-            <RowConstraints valignment="CENTER" vgrow="NEVER"/>
-        </rowConstraints>
+    <VBox alignment="CENTER" spacing="15.0">
+        <HBox alignment="CENTER" spacing="15.0">
+            <Hyperlink fx:id="lblRepo" style="-fx-text-fill: #424242;" text="lblRepo">
+                <font>
+                    <Font size="35.0"/>
+                </font>
+            </Hyperlink>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Hyperlink fx:id="btnStore">
+                <graphic>
+                    <SVGPath
+                            content="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"
+                            scaleX="1.5" scaleY="1.5" style="-fx-fill: #424242;"/>
+                </graphic>
+                <font>
+                    <Font size="35.0"/>
+                </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btnRefresh">
+                <graphic>
+                    <SVGPath
+                            content="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                            scaleX="1.5" scaleY="1.5" style="-fx-fill: #424242;"/>
+                </graphic>
+                <font>
+                    <Font size="35.0"/>
+                </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btnDownload" visible="false" managed="false">
+                <graphic>
+                    <SVGPath
+                            content="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"
+                            scaleX="1.5" scaleY="1.5" style="-fx-fill: #424242;"/>
+                </graphic>
+                <font>
+                    <Font size="35.0"/>
+                </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btnStart">
+                <graphic>
+                    <SVGPath content="M8 5v14l11-7z" scaleX="1.5" scaleY="1.5" style="-fx-fill: #424242;"/>
+                </graphic>
+                <font>
+                    <Font size="35.0"/>
+                </font>
+            </Hyperlink>
+            <Label fx:id="lblQuestions" minWidth="50">
+                <font>
+                    <Font size="35.0"/>
+                </font>
+            </Label>
+        </HBox>
 
-        <columnConstraints>
-            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES"/>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
-        </columnConstraints>
-
-        <Hyperlink fx:id="lblRepo" style="-fx-text-fill: #424242;" text="lblRepo" GridPane.columnIndex="0">
-            <font>
-                <Font size="35.0"/>
-            </font>
-        </Hyperlink>
-        <Hyperlink fx:id="btnStore" GridPane.columnIndex="1">
-            <graphic>
-                <SVGPath
-                        content="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"
-                        scaleX="1.5" scaleY="1.5" style="-fx-fill: #424242;"/>
-            </graphic>
-            <font>
-                <Font size="35.0"/>
-            </font>
-        </Hyperlink>
-
-        <Hyperlink fx:id="btnRefresh" GridPane.columnIndex="2">
-            <graphic>
-                <SVGPath
-                        content="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
-                        scaleX="1.5" scaleY="1.5" style="-fx-fill: #424242;"/>
-            </graphic>
-            <font>
-                <Font size="35.0"/>
-            </font>
-        </Hyperlink>
-        <Hyperlink fx:id="btnDownload" visible="false" GridPane.columnIndex="2">
-            <graphic>
-                <SVGPath
-                        content="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"
-                        scaleX="1.5" scaleY="1.5" style="-fx-fill: #424242;"/>
-            </graphic>
-            <font>
-                <Font size="35.0"/>
-            </font>
-        </Hyperlink>
-        <Hyperlink fx:id="btnStart" GridPane.columnIndex="3">
-            <graphic>
-                <SVGPath content="M8 5v14l11-7z" scaleX="1.5" scaleY="1.5" style="-fx-fill: #424242;"/>
-            </graphic>
-            <font>
-                <Font size="35.0"/>
-            </font>
-        </Hyperlink>
-        <Label fx:id="lblQuestions" GridPane.columnIndex="4" minWidth="50">
-            <font>
-                <Font size="35.0"/>
-            </font>
-        </Label>
-
-        <Slider fx:id="sldQuestions" min="1" GridPane.rowIndex="1" GridPane.columnSpan="5" blockIncrement="1" snapToTicks="true"
-                majorTickUnit="1" minorTickCount="0"/>
-
-        <StackPane.margin>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-        </StackPane.margin>
-    </GridPane>
+        <Slider fx:id="sldQuestions" blockIncrement="1" majorTickUnit="1" min="1" minorTickCount="0" snapToTicks="true">
+            <VBox.margin>
+                <Insets left="15.0" right="15.0"/>
+            </VBox.margin>
+        </Slider>
+    </VBox>
 
 </StackPane>

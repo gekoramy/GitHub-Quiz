@@ -47,4 +47,8 @@ public class ExamStarter extends Service<Void> {
             }
         };
     }
+
+    public void shuffle() {
+        questionPool.shuffle();
+    }
 }

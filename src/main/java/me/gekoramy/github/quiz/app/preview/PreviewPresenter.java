@@ -50,6 +50,8 @@ public class PreviewPresenter implements Initializable {
     @FXML
     private Hyperlink btnRefresh;
     @FXML
+    private Hyperlink btnShuffle;
+    @FXML
     private Hyperlink btnDownload;
     @FXML
     private Hyperlink btnStart;
@@ -92,6 +94,9 @@ public class PreviewPresenter implements Initializable {
 
         progress.progressProperty().bind(examStarter.getQuestionPool().progressProperty());
 
+        btnRefresh.managedProperty().bindBidirectional(btnRefresh.visibleProperty());
+        btnDownload.managedProperty().bindBidirectional(btnDownload.visibleProperty());
+
         updateAvailable.valueProperty().addListener((value, oldValue, newValue) -> {
             if (newValue != null && newValue) {
                 btnDownload.visibleProperty().set(true);
@@ -108,6 +113,7 @@ public class PreviewPresenter implements Initializable {
         btnStore.setOnAction(e -> onStore());
         btnDownload.setOnAction(e -> onDownload());
         btnRefresh.setOnAction(e -> onRefresh());
+        btnShuffle.setOnAction(e -> onShuffle());
         btnStart.setOnAction(e -> onStart());
     }
 
@@ -179,5 +185,9 @@ public class PreviewPresenter implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void onShuffle() {
+        examStarter.shuffle();
     }
 }

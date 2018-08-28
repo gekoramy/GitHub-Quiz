@@ -54,7 +54,6 @@ public class Pool<T> implements Serializable {
     public void revert() {
         toDoList.clear();
         toDoList.addAll(totalList);
-        Collections.shuffle(toDoList);
         this.progress.set(1);
     }
 
@@ -75,5 +74,9 @@ public class Pool<T> implements Serializable {
 
     public boolean isDone() {
         return toDoList.size() == 0;
+    }
+
+    public void shuffle() {
+        Collections.shuffle(toDoList);
     }
 }

@@ -61,15 +61,15 @@ public class Pool<T> implements Serializable {
         if (many > toDoList.size())
             throw new ArrayIndexOutOfBoundsException(toDoList.size());
 
-        List<T> questions = new ArrayList<>();
+        List<T> subList = new ArrayList<>();
 
         for (int i = 0; i < many; i++) {
-            questions.add(toDoList.poll());
+            subList.add(toDoList.poll());
         }
 
         this.progress.set((double) toDo() / (double) total());
 
-        return questions;
+        return subList;
     }
 
     public boolean isDone() {

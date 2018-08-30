@@ -68,9 +68,9 @@ public class PreviewPresenter implements Initializable {
     private final FileChooser fileChooser;
 
     public PreviewPresenter() {
-        this.fileChooser = new FileChooser();
-        this.fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Questions file", Constants.MIME));
-        this.fileChooser.setTitle("Store to quiz yourself offline");
+        fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(Constants.QUESTIONS_FILE);
+        fileChooser.setTitle("Store to quiz yourself offline");
 
         rotate = new RotateTransition(Duration.millis(750));
         rotate.setByAngle(360);

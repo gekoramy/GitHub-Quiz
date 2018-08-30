@@ -13,6 +13,7 @@ import me.gekoramy.github.quiz.app.AppPreview;
 import me.gekoramy.github.quiz.app.AppRepositories;
 import me.gekoramy.github.quiz.exception.NotLoggedException;
 import me.gekoramy.github.quiz.service.Read;
+import me.gekoramy.github.quiz.util.Constants;
 import me.gekoramy.github.quiz.util.GitHubClients;
 
 import java.net.URL;
@@ -31,6 +32,13 @@ public class HomePresenter implements Initializable {
     private Hyperlink btnOpen;
 
     private final Read read = new Read();
+    private final FileChooser fileChooser;
+
+    public HomePresenter() {
+        fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(Constants.QUESTIONS_FILE);
+        fileChooser.setTitle("Choose a questions file");
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,7 +87,7 @@ public class HomePresenter implements Initializable {
 
     private void onOpen() {
         if (!read.isRunning()) {
-            read.setSource(new FileChooser().showOpenDialog(null));
+            read.setSource(fileChooser.showOpenDialog(null));
             read.reset();
             read.start();
         }

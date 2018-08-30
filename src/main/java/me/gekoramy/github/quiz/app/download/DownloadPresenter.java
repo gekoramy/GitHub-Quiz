@@ -37,7 +37,7 @@ public class DownloadPresenter implements Initializable {
 
     public DownloadPresenter() {
         this.fileChooser = new FileChooser();
-        this.fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Questions file", Constants.MIME));
+        this.fileChooser.getExtensionFilters().add(Constants.QUESTIONS_FILE);
         this.fileChooser.setTitle("Store to quiz yourself offline");
     }
 
@@ -58,7 +58,7 @@ public class DownloadPresenter implements Initializable {
     }
 
     private void onSucceeded() {
-        store.setOutput(new FileChooser().showSaveDialog(null));
+        store.setOutput(fileChooser.showSaveDialog(null));
         store.setQuestionPool(download.getValue().getValue());
         store.start();
 

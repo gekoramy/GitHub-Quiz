@@ -34,11 +34,6 @@ public class QuestionsRetrieverOffline {
         return output;
     }
 
-    public File store(Repository repo, Pool<Question> questionPool) throws IOException {
-        String fileName = repo.getName().replaceFirst(Constants.PREFIX, "") + Constants.MIME;
-        return store(new File(fileName), repo, questionPool);
-    }
-
     public Pair<Repository, Pool<Question>> read(File file) throws IOException, ClassNotFoundException {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             return new Pair<>((Repository) ois.readObject(), new Pool<>((List<Question>) ois.readObject(), (LinkedList<Question>) ois.readObject()));

@@ -106,7 +106,7 @@ public class PreviewPresenter implements Initializable {
         btnRefresh.disableProperty().bind(updateAvailable.runningProperty());
 
         lblQuestions.textProperty().bind(Bindings.createIntegerBinding(() -> new Double(sldQuestions.valueProperty().get()).intValue(), sldQuestions.valueProperty()).asString());
-        sldQuestions.maxProperty().bindBidirectional(examStarter.getQuestionPool().todoProperty());
+        sldQuestions.maxProperty().bind(examStarter.getQuestionPool().todoProperty());
         sldQuestions.setValue(DEFAULT_SLIDE);
 
         lblRepo.setOnAction(e -> onRepo());

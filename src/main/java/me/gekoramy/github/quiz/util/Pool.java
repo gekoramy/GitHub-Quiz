@@ -1,7 +1,6 @@
 package me.gekoramy.github.quiz.util;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.*;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -17,19 +16,19 @@ public class Pool<T> implements Serializable {
 
     private final List<T> totalList;
     private final LinkedList<T> toDoList;
-    private final DoubleProperty todoProperty;
+    private final IntegerProperty todoProperty;
 
     public Pool(List<T> totalList) {
         this.totalList = totalList;
         this.toDoList = new LinkedList<>(totalList);
-        this.todoProperty = new SimpleDoubleProperty(toDoList.size());
+        this.todoProperty = new SimpleIntegerProperty(toDoList.size());
     }
 
     public Pool(List<T> totalList, LinkedList<T> toDoList) {
         this.totalList = totalList;
         this.toDoList = toDoList;
         toDoList.retainAll(totalList);
-        this.todoProperty = new SimpleDoubleProperty(toDo());
+        this.todoProperty = new SimpleIntegerProperty(toDo());
     }
 
     public List<T> getTotalList() {
@@ -48,7 +47,7 @@ public class Pool<T> implements Serializable {
         return toDoList.size();
     }
 
-    public DoubleProperty todoProperty() {
+    public ReadOnlyIntegerProperty todoProperty() {
         return todoProperty;
     }
 

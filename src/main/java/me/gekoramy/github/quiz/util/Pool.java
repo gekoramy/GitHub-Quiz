@@ -18,19 +18,19 @@ public class Pool<T> implements Serializable {
 
     private final List<T> totalList;
     private final LinkedList<T> toDoList;
-    private final DoubleProperty progress;
+    private final DoubleProperty todoProperty;
 
     public Pool(List<T> totalList) {
         this.totalList = totalList;
         this.toDoList = new LinkedList<>(totalList);
-        this.progress = new SimpleDoubleProperty(1);
+        this.todoProperty = new SimpleDoubleProperty(toDoList.size());
     }
 
     public Pool(List<T> totalList, LinkedList<T> toDoList) {
         this.totalList = totalList;
         this.toDoList = toDoList;
         toDoList.retainAll(totalList);
-        this.progress = new SimpleDoubleProperty((double) toDo() / (double) total());
+        this.todoProperty = new SimpleDoubleProperty(toDo());
     }
 
     public List<T> getTotalList() {
@@ -49,14 +49,14 @@ public class Pool<T> implements Serializable {
         return toDoList.size();
     }
 
-    public DoubleProperty progressProperty() {
-        return progress;
+    public DoubleProperty todoProperty() {
+        return todoProperty;
     }
 
     public void revert() {
         toDoList.clear();
         toDoList.addAll(totalList);
-        this.progress.set(1);
+        this.todoProperty.set(toDo());
     }
 
     public List<T> retrieve(int many) {
@@ -65,7 +65,7 @@ public class Pool<T> implements Serializable {
 
         List<T> subList = IntStream.range(0, many).mapToObj(i -> toDoList.poll()).collect(Collectors.toList());
 
-        this.progress.set((double) toDo() / (double) total());
+        this.todoProperty.set(toDo());
 
         return subList;
     }

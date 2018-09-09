@@ -92,7 +92,7 @@ public class PreviewPresenter implements Initializable {
 
         lblRepo.setText(updateAvailable.getRepo().getName());
 
-        progress.progressProperty().bind(examStarter.getQuestionPool().progressProperty());
+        progress.progressProperty().bind(examStarter.getQuestionPool().todoProperty().divide(examStarter.getQuestionPool().total()));
 
         btnRefresh.managedProperty().bindBidirectional(btnRefresh.visibleProperty());
         btnDownload.managedProperty().bindBidirectional(btnDownload.visibleProperty());

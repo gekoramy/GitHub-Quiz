@@ -2,7 +2,6 @@ package me.gekoramy.github.quiz.persistance;
 
 import javafx.util.Pair;
 import me.gekoramy.github.quiz.pojo.Question;
-import me.gekoramy.github.quiz.util.Constants;
 import me.gekoramy.github.quiz.util.Pool;
 import org.eclipse.egit.github.core.Repository;
 

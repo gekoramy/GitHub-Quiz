@@ -96,7 +96,7 @@ public class PreviewPresenter implements Initializable {
 
         lblRepo.setText(updateAvailable.getRepo().getName());
 
-        progress.progressProperty().bind(examStarter.getQuestionPool().todoProperty().divide(examStarter.getQuestionPool().total()));
+        progress.progressProperty().bind(examStarter.getQuestionPool().todoProperty().divide((double) examStarter.getQuestionPool().total()));
 
         btnRevert.visibleProperty().bind(Bindings.equal(0, examStarter.getQuestionPool().todoProperty()));
         btnStart.visibleProperty().bind(btnRevert.visibleProperty().not());

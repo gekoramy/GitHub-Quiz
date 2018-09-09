@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author Luca Mosetti
@@ -61,11 +63,7 @@ public class Pool<T> implements Serializable {
         if (many > toDoList.size())
             throw new ArrayIndexOutOfBoundsException(toDoList.size());
 
-        List<T> subList = new ArrayList<>();
-
-        for (int i = 0; i < many; i++) {
-            subList.add(toDoList.poll());
-        }
+        List<T> subList = IntStream.range(0, many).mapToObj(i -> toDoList.poll()).collect(Collectors.toList());
 
         this.progress.set((double) toDo() / (double) total());
 

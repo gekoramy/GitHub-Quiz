@@ -13,6 +13,7 @@ import org.eclipse.egit.github.core.Repository;
 import org.eclipse.egit.github.core.RepositoryContents;
 import org.eclipse.egit.github.core.client.GitHubClient;
 import org.eclipse.egit.github.core.service.ContentsService;
+import org.eclipse.egit.github.core.service.RepositoryService;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -70,7 +71,7 @@ public class Download extends Service<Pair<Repository, Pool<Question>>> {
                     }));
                 }
 
-                return new Pair<>(repo,
+                return new Pair<>(new RepositoryService(client).getRepository(repo),
                         new Pool<>(CompletableFuture.supplyAsync(() -> futures.stream()
                                 .map(CompletableFuture::join)
                                 .collect(Collectors.toList()))

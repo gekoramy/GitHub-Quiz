@@ -55,6 +55,8 @@ public class PreviewPresenter implements Initializable {
     private Hyperlink btnDownload;
     @FXML
     private Hyperlink btnStart;
+    @FXML
+    private Hyperlink btnRevert;
 
     @Inject
     private UpdateAvailable updateAvailable;
@@ -67,10 +69,12 @@ public class PreviewPresenter implements Initializable {
     private final RotateTransition rotate;
     private final FileChooser fileChooser;
 
+    private static final int DEFAULT_SLIDE = 12;
+
     public PreviewPresenter() {
-        this.fileChooser = new FileChooser();
-        this.fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Questions file", Constants.MIME));
-        this.fileChooser.setTitle("Store to quiz yourself offline");
+        fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(Constants.QUESTIONS_FILE);
+        fileChooser.setTitle("Store to quiz yourself offline");
 
         rotate = new RotateTransition(Duration.millis(750));
         rotate.setByAngle(360);
@@ -92,22 +96,18 @@ public class PreviewPresenter implements Initializable {
 
         lblRepo.setText(updateAvailable.getRepo().getName());
 
-        progress.progressProperty().bind(examStarter.getQuestionPool().progressProperty());
+        progress.progressProperty().bind(examStarter.getQuestionPool().todoProperty().divide(examStarter.getQuestionPool().total()));
 
-        btnRefresh.managedProperty().bindBidirectional(btnRefresh.visibleProperty());
-        btnDownload.managedProperty().bindBidirectional(btnDownload.visibleProperty());
+        btnRevert.visibleProperty().bind(Bindings.equal(0, examStarter.getQuestionPool().todoProperty()));
+        btnStart.visibleProperty().bind(btnRevert.visibleProperty().not());
 
-        updateAvailable.valueProperty().addListener((value, oldValue, newValue) -> {
-            if (newValue != null && newValue) {
-                btnDownload.visibleProperty().set(true);
-                btnRefresh.visibleProperty().set(false);
-            }
-        });
+        btnDownload.visibleProperty().bind(updateAvailable.valueProperty());
+        btnRefresh.visibleProperty().bind(btnDownload.visibleProperty().not());
         btnRefresh.disableProperty().bind(updateAvailable.runningProperty());
 
         lblQuestions.textProperty().bind(Bindings.createIntegerBinding(() -> new Double(sldQuestions.valueProperty().get()).intValue(), sldQuestions.valueProperty()).asString());
-        sldQuestions.setMax(examStarter.getQuestionPool().total());
-        sldQuestions.setValue(12);
+        sldQuestions.maxProperty().bind(examStarter.getQuestionPool().todoProperty());
+        sldQuestions.setValue(DEFAULT_SLIDE);
 
         lblRepo.setOnAction(e -> onRepo());
         btnStore.setOnAction(e -> onStore());
@@ -115,6 +115,7 @@ public class PreviewPresenter implements Initializable {
         btnRefresh.setOnAction(e -> onRefresh());
         btnShuffle.setOnAction(e -> onShuffle());
         btnStart.setOnAction(e -> onStart());
+        btnRevert.setOnAction(e -> onRevert());
     }
 
     public void setAccelerators(Scene scene) {
@@ -161,6 +162,12 @@ public class PreviewPresenter implements Initializable {
             examStarter.reset();
             examStarter.start();
         }
+    }
+
+    private void onRevert() {
+        examStarter.getQuestionPool().revert();
+        sldQuestions.setMin(1.0);
+        sldQuestions.setValue(DEFAULT_SLIDE);
     }
 
     private void onDownload() {

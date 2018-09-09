@@ -1,13 +1,13 @@
 package me.gekoramy.github.quiz.util;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author Luca Mosetti
@@ -16,19 +16,19 @@ public class Pool<T> implements Serializable {
 
     private final List<T> totalList;
     private final LinkedList<T> toDoList;
-    private final DoubleProperty progress;
+    private final IntegerProperty todoProperty;
 
     public Pool(List<T> totalList) {
         this.totalList = totalList;
         this.toDoList = new LinkedList<>(totalList);
-        this.progress = new SimpleDoubleProperty(1);
+        this.todoProperty = new SimpleIntegerProperty(toDoList.size());
     }
 
     public Pool(List<T> totalList, LinkedList<T> toDoList) {
         this.totalList = totalList;
         this.toDoList = toDoList;
         toDoList.retainAll(totalList);
-        this.progress = new SimpleDoubleProperty((double) toDo() / (double) total());
+        this.todoProperty = new SimpleIntegerProperty(toDo());
     }
 
     public List<T> getTotalList() {
@@ -47,29 +47,25 @@ public class Pool<T> implements Serializable {
         return toDoList.size();
     }
 
-    public DoubleProperty progressProperty() {
-        return progress;
+    public ReadOnlyIntegerProperty todoProperty() {
+        return todoProperty;
     }
 
     public void revert() {
         toDoList.clear();
         toDoList.addAll(totalList);
-        this.progress.set(1);
+        this.todoProperty.set(toDo());
     }
 
     public List<T> retrieve(int many) {
         if (many > toDoList.size())
             throw new ArrayIndexOutOfBoundsException(toDoList.size());
 
-        List<T> questions = new ArrayList<>();
+        List<T> subList = IntStream.range(0, many).mapToObj(i -> toDoList.poll()).collect(Collectors.toList());
 
-        for (int i = 0; i < many; i++) {
-            questions.add(toDoList.poll());
-        }
+        this.todoProperty.set(toDo());
 
-        this.progress.set((double) toDo() / (double) total());
-
-        return questions;
+        return subList;
     }
 
     public boolean isDone() {

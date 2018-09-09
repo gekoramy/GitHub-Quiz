@@ -2,7 +2,6 @@ package me.gekoramy.github.quiz.persistance;
 
 import javafx.util.Pair;
 import me.gekoramy.github.quiz.pojo.Question;
-import me.gekoramy.github.quiz.util.Constants;
 import me.gekoramy.github.quiz.util.Pool;
 import org.eclipse.egit.github.core.Repository;
 
@@ -32,11 +31,6 @@ public class QuestionsRetrieverOffline {
         }
 
         return output;
-    }
-
-    public File store(Repository repo, Pool<Question> questionPool) throws IOException {
-        String fileName = repo.getName().replaceFirst(Constants.PREFIX, "") + Constants.MIME;
-        return store(new File(fileName), repo, questionPool);
     }
 
     public Pair<Repository, Pool<Question>> read(File file) throws IOException, ClassNotFoundException {

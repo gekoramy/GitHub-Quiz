@@ -24,11 +24,4 @@ public class GitHubClients {
         return app.getGitHubClient();
     }
 
-    public static void logout() {
-        client = null;
-    }
-
-    public static void invalidate() {
-        client = null;
-    }
 }

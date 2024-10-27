@@ -6,7 +6,7 @@ import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.stage.Stage;
 import me.gekoramy.github.quiz.app.AppExam;
-import me.gekoramy.github.quiz.pojo.Question;
+import me.gekoramy.github.quiz.records.Question;
 import me.gekoramy.github.quiz.util.Pool;
 import org.eclipse.egit.github.core.Repository;
 

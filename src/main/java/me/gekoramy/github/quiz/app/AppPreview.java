@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.gekoramy.github.quiz.app.preview.PreviewPresenter;
 import me.gekoramy.github.quiz.app.preview.PreviewView;
-import me.gekoramy.github.quiz.pojo.Question;
+import me.gekoramy.github.quiz.records.Question;
 import me.gekoramy.github.quiz.service.ExamStarter;
 import me.gekoramy.github.quiz.service.OpenLink;
 import me.gekoramy.github.quiz.service.UpdateAvailable;

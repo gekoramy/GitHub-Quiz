@@ -3,7 +3,7 @@ package me.gekoramy.github.quiz.service;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import me.gekoramy.github.quiz.persistance.QuestionsRetrieverOffline;
-import me.gekoramy.github.quiz.pojo.Question;
+import me.gekoramy.github.quiz.records.Question;
 import me.gekoramy.github.quiz.util.Pool;
 import org.eclipse.egit.github.core.Repository;
 

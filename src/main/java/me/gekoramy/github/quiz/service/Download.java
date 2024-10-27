@@ -6,8 +6,8 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.util.Pair;
-import me.gekoramy.github.quiz.pojo.Data;
-import me.gekoramy.github.quiz.pojo.Question;
+import me.gekoramy.github.quiz.records.Data;
+import me.gekoramy.github.quiz.records.Question;
 import me.gekoramy.github.quiz.util.Pool;
 import org.eclipse.egit.github.core.Repository;
 import org.eclipse.egit.github.core.RepositoryContents;
@@ -63,7 +63,7 @@ public class Download extends Service<Pair<Repository, Pool<Question>>> {
                         try {
                             Data data = mapper.readValue(fetchAndDecode(new ContentsService(client), repo, name), Data.class);
                             updateProgress(status.incrementAndGet(), max);
-                            return new Question(name, data.getQuestion(), data.getAnswers(), data.getCorrect() - 'A');
+                            return new Question(name, data.question(), data.answers(), data.correct() - 'A');
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }

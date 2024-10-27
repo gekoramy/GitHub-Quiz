@@ -15,7 +15,7 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import me.gekoramy.github.quiz.app.exam.quiz.QuizPresenter;
 import me.gekoramy.github.quiz.app.exam.quiz.QuizView;
-import me.gekoramy.github.quiz.pojo.Question;
+import me.gekoramy.github.quiz.records.Question;
 import me.gekoramy.github.quiz.service.EditContent;
 import org.eclipse.egit.github.core.Repository;
 
@@ -92,7 +92,7 @@ public class ExamPresenter implements Initializable {
     private void createQuiz(int i) {
         Map<Object, Object> customProperties = new HashMap<>();
         customProperties.put("question", questions.get(i));
-        customProperties.put("editContent", new EditContent(hostServices, repo, questions.get(i).getId()));
+        customProperties.put("editContent", new EditContent(hostServices, repo, questions.get(i).id()));
 
         QuizView q = new QuizView(customProperties::get);
         QuizPresenter p = ((QuizPresenter) q.getPresenter());

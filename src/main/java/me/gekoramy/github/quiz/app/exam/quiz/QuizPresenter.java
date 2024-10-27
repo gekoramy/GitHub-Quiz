@@ -10,7 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import me.gekoramy.github.quiz.exception.NotLoggedException;
-import me.gekoramy.github.quiz.pojo.Question;
+import me.gekoramy.github.quiz.records.Question;
 import me.gekoramy.github.quiz.service.EditContent;
 import me.gekoramy.github.quiz.util.GitHubClients;
 
@@ -49,10 +49,10 @@ public class QuizPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String txt = question.getQuestion();
+        String txt = question.question();
         txtQuestion.setText(txt);
 
-        for (String answer : question.getAnswers()) {
+        for (String answer : question.answers()) {
             RadioButton tmp = new RadioButton(answer);
             tmp.setWrapText(true);
             tmp.setToggleGroup(group);
@@ -145,7 +145,7 @@ public class QuizPresenter implements Initializable {
      * false otherwise
      */
     public boolean isCorrect() {
-        return getChosenAnswer() == question.getCorrect();
+        return getChosenAnswer() == question.correct();
     }
 
     /**
@@ -153,7 +153,7 @@ public class QuizPresenter implements Initializable {
      */
     public void showCorrect() {
         btnPeek.setText("!");
-        options.get(question.getCorrect()).setBackground(CORRECT_BG);
+        options.get(question.correct()).setBackground(CORRECT_BG);
     }
 
     /**
@@ -161,7 +161,7 @@ public class QuizPresenter implements Initializable {
      */
     private void hideCorrect() {
         btnPeek.setText("?");
-        options.get(question.getCorrect()).setBackground(Background.EMPTY);
+        options.get(question.correct()).setBackground(Background.EMPTY);
     }
 
     /**

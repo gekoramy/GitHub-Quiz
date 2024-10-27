@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.gekoramy.github.quiz.app.exam.ExamPresenter;
 import me.gekoramy.github.quiz.app.exam.ExamView;
-import me.gekoramy.github.quiz.pojo.Question;
+import me.gekoramy.github.quiz.records.Question;
 import org.eclipse.egit.github.core.Repository;
 
 import java.util.HashMap;

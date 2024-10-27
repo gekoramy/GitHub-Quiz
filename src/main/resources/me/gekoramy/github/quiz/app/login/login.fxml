@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="800.0" spacing="10" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.gekoramy.github.quiz.app.login.LoginPresenter">
+
+    <ImageView fitHeight="60.0" fitWidth="60.0" preserveRatio="true">
+        <Image url="@GitHub-Mark.png"/>
+    </ImageView>
+
+    <Label text="Sign in to GitHub">
+        <font>
+            <Font size="22.0"/>
+        </font>
+        <VBox.margin>
+            <Insets top="15.0"/>
+        </VBox.margin>
+    </Label>
+
+    <StackPane fx:id="pnlIncorrect" style="-fx-background-color: #ffdce0; -fx-border-color: rgba(27,31,35,0.15); -fx-border-radius: 5; -fx-padding: 10;" visible="false">
+        <Label text="Incorrect token."/>
+    </StackPane>
+
+    <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: white; -fx-border-color: #D9DEE2; -fx-border-radius: 5">
+        <Label text="Personal access token">
+            <font>
+                <Font name="Arial" size="14.0"/>
+            </font>
+        </Label>
+        <PasswordField fx:id="txtPass"/>
+        <Button fx:id="btnSubmit" defaultButton="true" prefHeight="27.0" maxWidth="Infinity" style="-fx-background-color: linear-gradient(#68C965 0%, #53A450 90%);" text="Sign in" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="14.0"/>
+            </font>
+        </Button>
+    </VBox>
+
+</VBox>

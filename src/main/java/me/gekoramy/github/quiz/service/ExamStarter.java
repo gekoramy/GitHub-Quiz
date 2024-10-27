@@ -28,10 +28,6 @@ public class ExamStarter extends Service<Void> {
         return questionPool;
     }
 
-    public int getMany() {
-        return many;
-    }
-
     public void setMany(int many) {
         this.many = many;
     }

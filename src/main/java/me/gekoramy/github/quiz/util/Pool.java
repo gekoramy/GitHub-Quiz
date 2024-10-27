@@ -1,12 +1,11 @@
 package me.gekoramy.github.quiz.util;
 
-import javafx.beans.property.*;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ReadOnlyIntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import java.io.Serializable;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 import java.util.stream.IntStream;
 
 /**
@@ -15,19 +14,19 @@ import java.util.stream.IntStream;
 public class Pool<T> implements Serializable {
 
     private final List<T> totalList;
-    private final LinkedList<T> toDoList;
+    private final Queue<T> toDoList;
     private final IntegerProperty todoProperty;
 
     public Pool(List<T> totalList) {
-        this.totalList = totalList;
-        this.toDoList = new LinkedList<>(totalList);
+        this.totalList = List.copyOf(totalList);
+        this.toDoList = new ArrayDeque<>(totalList);
         this.todoProperty = new SimpleIntegerProperty(toDoList.size());
     }
 
-    public Pool(List<T> totalList, LinkedList<T> toDoList) {
-        this.totalList = totalList;
-        this.toDoList = toDoList;
-        toDoList.retainAll(totalList);
+    public Pool(List<T> totalList, List<T> toDoList) {
+        this.totalList = List.copyOf(totalList);
+        this.toDoList = new ArrayDeque<>(totalList.size());
+        this.toDoList.addAll(toDoList);
         this.todoProperty = new SimpleIntegerProperty(toDo());
     }
 
@@ -35,8 +34,8 @@ public class Pool<T> implements Serializable {
         return totalList;
     }
 
-    public LinkedList<T> getToDoList() {
-        return toDoList;
+    public List<T> getToDoList() {
+        return List.copyOf(toDoList);
     }
 
     public int total() {
@@ -61,7 +60,7 @@ public class Pool<T> implements Serializable {
         if (many > toDoList.size())
             throw new ArrayIndexOutOfBoundsException(toDoList.size());
 
-        List<T> subList = IntStream.range(0, many).mapToObj(i -> toDoList.poll()).collect(Collectors.toList());
+        List<T> subList = IntStream.range(0, many).mapToObj(i -> toDoList.poll()).toList();
 
         this.todoProperty.set(toDo());
 
@@ -69,10 +68,13 @@ public class Pool<T> implements Serializable {
     }
 
     public boolean isDone() {
-        return toDoList.size() == 0;
+        return toDoList.isEmpty();
     }
 
     public void shuffle() {
-        Collections.shuffle(toDoList);
+        ArrayList<T> tmp = new ArrayList<>(toDoList);
+        Collections.shuffle(tmp);
+        toDoList.clear();
+        toDoList.addAll(tmp);
     }
 }

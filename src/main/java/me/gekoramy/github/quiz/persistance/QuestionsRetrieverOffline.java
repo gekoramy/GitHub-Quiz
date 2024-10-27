@@ -6,7 +6,6 @@ import me.gekoramy.github.quiz.util.Pool;
 import org.eclipse.egit.github.core.Repository;
 
 import java.io.*;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -35,7 +34,7 @@ public class QuestionsRetrieverOffline {
 
     public Pair<Repository, Pool<Question>> read(File file) throws IOException, ClassNotFoundException {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-            return new Pair<>((Repository) ois.readObject(), new Pool<>((List<Question>) ois.readObject(), (LinkedList<Question>) ois.readObject()));
+            return new Pair<>((Repository) ois.readObject(), new Pool<>((List<Question>) ois.readObject(), (List<Question>) ois.readObject()));
         }
     }
 }

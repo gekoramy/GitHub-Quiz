@@ -131,8 +131,8 @@ public class ExamPresenter implements Initializable {
         if (proceed.get()) {
             Alert dialog = new Alert(Alert.AlertType.INFORMATION);
             long points = correct();
-            dialog.setHeaderText("Correct answers: " + points + "/" + quizzes.size());
-            dialog.setContentText("Your mark is " + Long.toString(points * 30 / quizzes.size()) + "/30");
+            dialog.setHeaderText("Correct answers: %d/%d".formatted(points, quizzes.size()));
+            dialog.setContentText("Your mark is %d/30".formatted(points * 30 / quizzes.size()));
             dialog.show();
 
             btnShow.setDisable(false);

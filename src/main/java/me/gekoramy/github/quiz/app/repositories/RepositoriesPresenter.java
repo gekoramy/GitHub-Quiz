@@ -51,7 +51,7 @@ public class RepositoriesPresenter implements Initializable {
         List<Repository> questionsRepos = repositories.getValue().stream().filter(r -> r.getName().startsWith(Constants.PREFIX)).collect(Collectors.toList());
 
         if (questionsRepos.isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "None of your repository starts with 'questions.'").show();
+            new Alert(Alert.AlertType.WARNING, "None of your repository starts with '%s'".formatted(Constants.PREFIX)).show();
         } else {
             questionsRepos.forEach(r -> {
                 Hyperlink link = new Hyperlink(r.getName());

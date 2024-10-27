@@ -91,7 +91,7 @@ public class QuizPresenter implements Initializable {
     }
 
     /**
-     * Associate every answer whit 2 string:
+     * Associate every answer with 2 string:
      * - (char) (A + index)
      * - (int) index
      *
@@ -121,7 +121,7 @@ public class QuizPresenter implements Initializable {
     }
 
     /**
-     * @return true if the user has choose an answer,
+     * @return true if the user has chosen an answer,
      * false otherwise
      */
     public boolean hasAnswered() {
@@ -141,7 +141,7 @@ public class QuizPresenter implements Initializable {
     }
 
     /**
-     * @return true if the user has choose the right answer,
+     * @return true if the user has chosen the right answer,
      * false otherwise
      */
     public boolean isCorrect() {

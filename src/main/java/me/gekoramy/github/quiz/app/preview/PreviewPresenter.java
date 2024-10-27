@@ -105,7 +105,7 @@ public class PreviewPresenter implements Initializable {
         btnRefresh.visibleProperty().bind(btnDownload.visibleProperty().not());
         btnRefresh.disableProperty().bind(updateAvailable.runningProperty());
 
-        lblQuestions.textProperty().bind(Bindings.createIntegerBinding(() -> new Double(sldQuestions.valueProperty().get()).intValue(), sldQuestions.valueProperty()).asString());
+        lblQuestions.textProperty().bind(Bindings.createIntegerBinding(() -> Double.valueOf(sldQuestions.valueProperty().get()).intValue(), sldQuestions.valueProperty()).asString());
         sldQuestions.maxProperty().bind(examStarter.getQuestionPool().todoProperty());
         sldQuestions.setValue(DEFAULT_SLIDE);
 
@@ -158,7 +158,7 @@ public class PreviewPresenter implements Initializable {
 
     private void onStart() {
         if (!examStarter.isRunning()) {
-            examStarter.setMany(new Double(sldQuestions.getValue()).intValue());
+            examStarter.setMany(Double.valueOf(sldQuestions.getValue()).intValue());
             examStarter.reset();
             examStarter.start();
         }

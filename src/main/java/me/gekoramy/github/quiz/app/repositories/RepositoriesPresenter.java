@@ -18,7 +18,6 @@ import javax.inject.Inject;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 /**
  * @author Luca Mosetti
@@ -48,7 +47,7 @@ public class RepositoriesPresenter implements Initializable {
     }
 
     private void onSucceeded() {
-        List<Repository> questionsRepos = repositories.getValue().stream().filter(r -> r.getName().startsWith(Constants.PREFIX)).collect(Collectors.toList());
+        List<Repository> questionsRepos = repositories.getValue().stream().filter(r -> r.getName().startsWith(Constants.PREFIX)).toList();
 
         if (questionsRepos.isEmpty()) {
             new Alert(Alert.AlertType.WARNING, "None of your repository starts with '%s'".formatted(Constants.PREFIX)).show();

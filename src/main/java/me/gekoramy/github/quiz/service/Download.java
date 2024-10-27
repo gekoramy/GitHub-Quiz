@@ -22,7 +22,6 @@ import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 /**
  * @author Luca Mosetti
@@ -48,7 +47,7 @@ public class Download extends Service<Pair<Repository, Pool<Question>>> {
             protected Pair<Repository, Pool<Question>> call() throws Exception {
 
                 ContentsService cs = new ContentsService(client);
-                List<String> filesName = cs.getContents(repo).stream().map(RepositoryContents::getName).filter(name -> name.endsWith(".yml")).collect(Collectors.toList());
+                List<String> filesName = cs.getContents(repo).stream().map(RepositoryContents::getName).filter(name -> name.endsWith(".yml")).toList();
 
                 if (filesName.isEmpty())
                     throw new IOException("There's no yml files");
@@ -72,16 +71,16 @@ public class Download extends Service<Pair<Repository, Pool<Question>>> {
                 }
 
                 return new Pair<>(new RepositoryService(client).getRepository(repo),
-                        new Pool<>(CompletableFuture.supplyAsync(() -> futures.stream()
-                                .map(CompletableFuture::join)
-                                .collect(Collectors.toList()))
-                                .get()
-                        ));
+                    new Pool<>(CompletableFuture.supplyAsync(() -> futures.stream()
+                            .map(CompletableFuture::join)
+                            .toList())
+                        .get()
+                    ));
             }
         };
     }
 
     private String fetchAndDecode(ContentsService cs, Repository repo, String name) throws IOException {
-        return new String(Base64.getDecoder().decode(cs.getContents(repo, name).get(0).getContent().replaceAll("\\p{C}", "")), StandardCharsets.UTF_8.name());
+        return new String(Base64.getDecoder().decode(cs.getContents(repo, name).getFirst().getContent().replaceAll("\\p{C}", "")), StandardCharsets.UTF_8);
     }
 }

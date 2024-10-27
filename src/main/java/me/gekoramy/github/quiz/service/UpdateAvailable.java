@@ -31,7 +31,7 @@ public class UpdateAvailable extends Service<Boolean> {
     protected Task<Boolean> createTask() {
         assert client != null;
 
-        return new Task<Boolean>() {
+        return new Task<>() {
             @Override
             protected Boolean call() {
                 try {

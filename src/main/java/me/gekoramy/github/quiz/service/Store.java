@@ -34,7 +34,7 @@ public class Store extends Service<File> {
     @Override
     protected Task<File> createTask() {
         assert questionPool != null && output != null;
-        return new Task<File>() {
+        return new Task<>() {
             @Override
             protected File call() throws Exception {
                 return QuestionsRetrieverOffline.getInstance().store(output, repo, questionPool);

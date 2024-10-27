@@ -23,7 +23,7 @@ public class Read extends Service<Pair<Repository, Pool<Question>>> {
 
     @Override
     protected Task<Pair<Repository, Pool<Question>>> createTask() {
-        return new Task<Pair<Repository, Pool<Question>>>() {
+        return new Task<>() {
             @Override
             protected Pair<Repository, Pool<Question>> call() throws Exception {
                 return QuestionsRetrieverOffline.getInstance().read(source);

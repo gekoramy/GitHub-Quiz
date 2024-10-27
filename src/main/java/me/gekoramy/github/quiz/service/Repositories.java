@@ -21,8 +21,7 @@ public class Repositories extends Service<List<Repository>> {
 
     @Override
     protected Task<List<Repository>> createTask() {
-        return new Task<List<Repository>>() {
-
+        return new Task<>() {
             @Override
             protected List<Repository> call() throws Exception {
                 return new RepositoryService(client)

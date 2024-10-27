@@ -33,7 +33,7 @@ public class EditContent extends Service<Void> {
     @Override
     protected Task<Void> createTask() {
         assert client != null;
-        return new Task<Void>() {
+        return new Task<>() {
             @Override
             protected Void call() {
                 hostServices.showDocument(

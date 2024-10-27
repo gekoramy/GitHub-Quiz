@@ -40,7 +40,7 @@ public class Login extends Service<GitHubClient> {
 
     @Override
     protected Task<GitHubClient> createTask() {
-        return new Task<GitHubClient>() {
+        return new Task<>() {
             @Override
             protected GitHubClient call() {
                 try {

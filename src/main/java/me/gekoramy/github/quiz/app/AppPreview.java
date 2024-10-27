@@ -23,6 +23,7 @@ public class AppPreview extends Application {
 
     private final Map<Object, Object> customProperties = new HashMap<>();
 
+    @SuppressWarnings("unused")
     public AppPreview() {
     }
 

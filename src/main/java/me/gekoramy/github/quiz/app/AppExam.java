@@ -20,6 +20,7 @@ public class AppExam extends Application {
 
     private final Map<Object, Object> customProperties = new HashMap<>();
 
+    @SuppressWarnings("unused")
     public AppExam() {
     }
 

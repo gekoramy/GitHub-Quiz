@@ -16,6 +16,7 @@ public class EditContent extends Service<Void> {
     private String content;
     private GitHubClient client;
 
+    @SuppressWarnings("unused")
     public EditContent() {
     }
 

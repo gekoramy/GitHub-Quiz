@@ -20,6 +20,7 @@ public class AppDownload extends Application {
 
     private final Map<Object, Object> customProperties = new HashMap<>();
 
+    @SuppressWarnings("unused")
     public AppDownload() {
     }
 

@@ -18,13 +18,7 @@ public class GitHubClients {
     private static GitHubClient login() throws NotLoggedException {
         AppLogin app = new AppLogin();
 
-        try {
-            app.start(
-                    new Stage()
-            );
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        app.start(new Stage());
 
         if (app.getGitHubClient() == null) throw new NotLoggedException();
         return app.getGitHubClient();

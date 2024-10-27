@@ -61,15 +61,14 @@ public class HomePresenter implements Initializable {
     }
 
     private void onDragDropped(DragEvent event) {
-        Dragboard db = event.getDragboard();
-        boolean success = false;
-        if (db.hasFiles() && !read.isRunning()) {
-            read.setSource(db.getFiles().iterator().next());
+        final Dragboard db = event.getDragboard();
+        final boolean ok = db.hasFiles() && !read.isRunning();
+        if (ok) {
+            read.setSource(db.getFiles().getFirst());
             read.reset();
             read.start();
-            success = true;
         }
-        event.setDropCompleted(success);
+        event.setDropCompleted(ok);
         event.consume();
     }
 

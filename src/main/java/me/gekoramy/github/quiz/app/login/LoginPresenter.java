@@ -1,13 +1,10 @@
 package me.gekoramy.github.quiz.app.login;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import me.gekoramy.github.quiz.service.Login;
@@ -23,8 +20,6 @@ public class LoginPresenter implements Initializable {
     @FXML
     private StackPane pnlIncorrect;
     @FXML
-    private TextField txtUser;
-    @FXML
     private PasswordField txtPass;
     @FXML
     private Button btnSubmit;
@@ -33,22 +28,22 @@ public class LoginPresenter implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        login.usernameProperty().bind(txtUser.textProperty());
-        login.passwordProperty().bind(txtPass.textProperty());
+        login.tokenProperty().bind(txtPass.textProperty());
 
         login.setOnSucceeded(e -> {
-            if (login.getValue() != null) {
+            if (login.getValue() == null) {
+                pnlIncorrect.setVisible(true);
+            } else {
                 ((Stage) btnSubmit.getScene().getWindow()).close();
             }
         });
 
         pnlIncorrect.managedProperty().bind(pnlIncorrect.visibleProperty());
-        pnlIncorrect.visibleProperty().bind(Bindings.and(
-                login.valueProperty().isNull(),
-                login.stateProperty().isEqualTo(new SimpleObjectProperty<>(Worker.State.SUCCEEDED))
-        ));
 
-        btnSubmit.disableProperty().bind(login.runningProperty());
+        btnSubmit.disableProperty().bind(Bindings.or(
+            txtPass.textProperty().isEmpty(),
+            login.runningProperty()
+        ));
         btnSubmit.setOnAction(e -> validate());
     }
 
